@@ -22,7 +22,7 @@ import java.math.RoundingMode;
 import rs.in.jmax.taxo.callback.GPSCallback;
 import rs.in.jmax.taxo.manager.GPSManager;
 
-public class JmaxGPS extends Activity implements GPSCallback {
+public class JTaxo extends Activity implements GPSCallback {
 
     private final static double[] multipliers = {
             0.001, 1.0
