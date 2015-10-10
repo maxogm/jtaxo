@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Jmax Taxo</string>
+    <string name="app_name">JTaxo</string>
     <string name="unit_prompt">Measurement Unit</string>
     <string name="start_measuring_info">Press \"Start\" button to start measuring the distance from here.</string>
     <string name="measuring_info">Distance from starting point is</string>
     <string name="gps_searching">GPS Accuracy is: {0} > 10m... searching...</string>
 
     <string-array name="units">
-        <item>Meters</item>
         <item>Kilometers</item>
+        <item>Meters</item>
     </string-array>
 </resources>

@@ -1,20 +1,9 @@
 package rs.in.jmax.taxo;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
-import java.text.MessageFormat;
-
-import rs.in.jmax.taxo.callback.GPSCallback;
-import rs.in.jmax.taxo.manager.GPSManager;
-import rs.in.jmax.taxo.utils.Utils;
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -27,14 +16,20 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import rs.in.jmax.taxo.callback.GPSCallback;
+import rs.in.jmax.taxo.manager.GPSManager;
+
 public class JmaxGPS extends Activity implements GPSCallback {
 
     private final static double[] multipliers = {
-            1.0, 0.001
+            0.001, 1.0
     };
 
     private final static String[] unitstrings = {
-            "m", "km"
+            "km", "m"
     };
 
     private GPSManager gpsManager = null;
@@ -44,7 +39,6 @@ public class JmaxGPS extends Activity implements GPSCallback {
     private double startLon = 0;
     private double startLat = 0;
     private double distance = 0.0;
-    private float accuracy = 0.0f;
     private boolean isMeasuring = false;
 
     @Override
@@ -84,8 +78,8 @@ public class JmaxGPS extends Activity implements GPSCallback {
     /**
      * Function to show settings alert dialog
      * On pressing Settings button will lauch Settings Options
-     * */
-    public void showSettings(){
+     */
+    public void showSettings() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         // Setting Dialog Title
         alertDialog.setTitle("GPS");
@@ -93,14 +87,17 @@ public class JmaxGPS extends Activity implements GPSCallback {
         alertDialog.setMessage("GPS is not enabled. Do you want to go to settings menu?");
         // On pressing Settings button
         alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog,int which) {
+            public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(intent);
-            }});
+            }
+        });
         // on pressing cancel button
         alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();}});
+                dialog.cancel();
+            }
+        });
         // Showing Alert Message
         alertDialog.show();
     }

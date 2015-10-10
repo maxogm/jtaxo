@@ -1,22 +1,17 @@
 package rs.in.jmax.taxo.manager;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
 
 import rs.in.jmax.taxo.callback.GPSCallback;
 
-public class GPSManager
-{
-    private static final int gpsMinTime = 1000;
+public class GPSManager {
+    private static final int gpsMinTime = 2000;
     private static final int gpsMinDistance = 1;
 
     private LocationManager locationManager = null;
